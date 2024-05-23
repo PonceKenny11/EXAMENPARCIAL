@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EXAMENPARCIAL</string>
+    <string name="app_correo">EMAIL@</string>
+    <string name="app_contrasena">Password...</string>
+    <string name="app_ingresar">Sign In</string>
+    <string name="app_salir">Exit</string>
+    <string name="app_registrar">Check In</string>
+    <string name="nameComplet">Escribe tu Nombre Completo</string>
+    <string name="pregunta_login">¿Aún no te has registrado?</string>
+</resources>
