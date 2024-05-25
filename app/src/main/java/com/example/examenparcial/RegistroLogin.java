@@ -1,6 +1,7 @@
 package com.example.examenparcial;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,8 +64,44 @@ public class RegistroLogin extends AppCompatActivity {
         if(isValid){
             Toast.makeText(this, "Validación exitosa", Toast.LENGTH_SHORT).show();
         }
+
+        limparCampos();
     }
 
 
+    private void registerUser() {
+        // SharedPreferences ->  Es útil para guardar datos pequeños y simples, como configuraciones del usuario o estados de la aplicación.
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        /*"UserPrefs", es el nombre del archivo de preferencias.
+        * */
+        // Crear un editor para hacer cambios en SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        // Guardar un valor booleano con la clave "isRegistered"
+        editor.putBoolean("isRegistered", true);
+
+        /*    // Guardar los valores en SharedPreferences
+    editor.putBoolean("isRegistered", true);
+    editor.putString("nombre", nombre);
+    editor.putString("password", passwordInput);
+    editor.putString("email", emailInput);
+    editor.putString("phone", phoneInput);
+    editor.putString("date", dateInput);
+    editor.putString("gender", gender);
+*/
+
+
+        // Aplicar los cambios
+        editor.apply();
+    }
+
+
+    private void limparCampos(){
+        plainText.setText("");
+        password.setText("");
+        phone.setText("");
+        email.setText("");
+        date.setText("");
+        radioGroup.clearCheck();
+    }
 }

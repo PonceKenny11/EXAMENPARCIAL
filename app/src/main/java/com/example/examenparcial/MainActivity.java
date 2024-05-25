@@ -1,6 +1,7 @@
 package com.example.examenparcial;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -30,4 +31,39 @@ public class MainActivity extends AppCompatActivity {
         startActivity(instanciar);
         finish();
     }
+
+    private boolean validateLogin() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        boolean isRegistered = sharedPreferences.getBoolean("isRegistered", false);
+
+        //String emailInput = email.getText().toString().trim();
+        //String passwordInput = password.getText().toString().trim();
+
+        //return isRegistered && !emailInput.isEmpty() && !passwordInput.isEmpty();
+        return true;
+    }
+
+    /*private boolean validateLogin() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        boolean isRegistered = sharedPreferences.getBoolean("isRegistered", false);
+
+        String emailInput = email.getText().toString().trim();
+        String passwordInput = password.getText().toString().trim();
+
+        if (isRegistered) {
+            String registeredEmail = sharedPreferences.getString("email", "");
+            String registeredPassword = sharedPreferences.getString("password", "");
+
+            if (emailInput.equals(registeredEmail) && passwordInput.equals(registeredPassword)) {
+                return true;  // Login successful
+            } else {
+                Toast.makeText(this, "Correo electrónico o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        } else {
+            Toast.makeText(this, "Usuario no registrado", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }*/
+
 }
