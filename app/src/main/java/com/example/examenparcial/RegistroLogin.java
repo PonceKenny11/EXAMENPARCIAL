@@ -62,6 +62,7 @@ public class RegistroLogin extends AppCompatActivity {
         );
 
         if(isValid){
+            registerUser(password.getText().toString(),email.getText().toString());
             Toast.makeText(this, "Validación exitosa", Toast.LENGTH_SHORT).show();
         }
 
@@ -69,28 +70,28 @@ public class RegistroLogin extends AppCompatActivity {
     }
 
 
-    private void registerUser() {
+    private void registerUser(String passwordInput, String emailInput) {
         // SharedPreferences ->  Es útil para guardar datos pequeños y simples, como configuraciones del usuario o estados de la aplicación.
-        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("UsuarioRegistrado", MODE_PRIVATE);
         /*"UserPrefs", es el nombre del archivo de preferencias.
         * */
         // Crear un editor para hacer cambios en SharedPreferences
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        // Guardar un valor booleano con la clave "isRegistered"
+        // Guardar los valores en SharedPreferences
         editor.putBoolean("isRegistered", true);
 
-        /*    // Guardar los valores en SharedPreferences
-    editor.putBoolean("isRegistered", true);
-    editor.putString("nombre", nombre);
-    editor.putString("password", passwordInput);
-    editor.putString("email", emailInput);
-    editor.putString("phone", phoneInput);
-    editor.putString("date", dateInput);
-    editor.putString("gender", gender);
-*/
-
-
+        editor.putString("password", passwordInput);
+        editor.putString("email", emailInput);
+        /*
+        editor.putBoolean("isRegistered", true);
+        editor.putString("nombre", nombre);
+        editor.putString("password", passwordInput);
+        editor.putString("email", emailInput);
+        editor.putString("phone", phoneInput);
+        editor.putString("date", dateInput);
+        editor.putString("gender", gender);
+        */
         // Aplicar los cambios
         editor.apply();
     }

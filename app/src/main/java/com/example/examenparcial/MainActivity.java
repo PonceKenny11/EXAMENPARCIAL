@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText correo, contrasenia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        correo = findViewById(R.id.txtEmail);
+        contrasenia = findViewById(R.id.txtPassword);
     }
 
 
@@ -32,23 +39,19 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    private boolean validateLogin() {
-        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-        boolean isRegistered = sharedPreferences.getBoolean("isRegistered", false);
-
-        //String emailInput = email.getText().toString().trim();
-        //String passwordInput = password.getText().toString().trim();
-
-        //return isRegistered && !emailInput.isEmpty() && !passwordInput.isEmpty();
-        return true;
+    public void ingresandoLG(View view){
+        if (validateLogin()){
+            Toast.makeText(this, "BIENVENIDO! :D", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    /*private boolean validateLogin() {
-        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-        boolean isRegistered = sharedPreferences.getBoolean("isRegistered", false);
 
-        String emailInput = email.getText().toString().trim();
-        String passwordInput = password.getText().toString().trim();
+    private boolean validateLogin() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UsuarioRegistrado", MODE_PRIVATE);
+        boolean isRegistered = sharedPreferences.getBoolean("isRegistered", true);
+
+        String emailInput = correo.getText().toString().trim();
+        String passwordInput = contrasenia.getText().toString().trim();
 
         if (isRegistered) {
             String registeredEmail = sharedPreferences.getString("email", "");
@@ -64,6 +67,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Usuario no registrado", Toast.LENGTH_SHORT).show();
             return false;
         }
-    }*/
+    }
 
 }

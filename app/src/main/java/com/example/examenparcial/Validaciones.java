@@ -30,8 +30,8 @@ public class Validaciones {
         if (password.isEmpty()) {
             showToast("El campo Contraseña es obligatorio");
             return false;
-        } else if (password.length() != 9) {
-            showToast("La contraseña debe tener exactamente 9 caracteres");
+        } else if (password.length() < 9) {
+            showToast("La contraseña debe ser mayor que 9 caracteres");
             return false;
         }
 

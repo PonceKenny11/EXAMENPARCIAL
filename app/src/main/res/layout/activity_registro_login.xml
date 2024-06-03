@@ -53,7 +53,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="@string/name_Date"
-        android:inputType="date"
+        android:inputType="phone"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,6 +127,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="32dp"
         android:background="@color/Azul_Marino"
+        android:onClick="ChekInSubmit"
         android:text="@string/app_aceptar"
         android:textColor="@color/white"
         android:textSize="17dp"
@@ -157,6 +158,7 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNewPass" />
 
