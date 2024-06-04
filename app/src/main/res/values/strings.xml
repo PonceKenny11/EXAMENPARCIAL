@@ -12,12 +12,15 @@
     <string name="name_Date">Ingresa tu fecha de nacimiento</string>
     <string name="title_screen">REGISTRAR NUEVO USUARIO!</string>
     <string name="pregunta_login">¿Aún no te has registrado?</string>
+    <string name="casillero">casillero</string>
     <string name="Sexo_M">Masculino</string>
     <string name="Sexo_F">Femenino</string>
     <string-array name="combo_items">
-        <item>Option 1</item>
-        <item>Option 2</item>
-        <item>Option 3</item>
-        <item>Option 4</item>
+        <item>Abogado</item>
+        <item>Ingeniero</item>
+        <item>Administrador</item>
+        <item>Doctor</item>
+        <item>Profesor</item>
+        <item>Arquitecto</item>
     </string-array>
 </resources>
