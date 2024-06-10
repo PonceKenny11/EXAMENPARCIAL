@@ -9,8 +9,8 @@
 
     <TableLayout
         android:id="@+id/gameLinea"
-        android:layout_width="409dp"
-        android:layout_height="470dp"
+        android:layout_width="408dp"
+        android:layout_height="359dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="120dp"
@@ -24,9 +24,9 @@
             <Button
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/button_celeste_azul"
                 android:contentDescription="Cell 1"
                 android:onClick="onCellClicked"
                 android:tag="00"
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/button_celeste_azul"
                 android:contentDescription="Cell 2"
                 android:onClick="onCellClicked"
                 android:tag="01"
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/button_celeste_azul"
                 android:contentDescription="Cell 3"
                 android:onClick="onCellClicked"
                 android:tag="02"
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/button_celeste_azul"
                 android:contentDescription="Cell 4"
                 android:onClick="onCellClicked"
                 android:tag="10"
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/button_celeste_azul"
                 android:contentDescription="Cell 5"
                 android:onClick="onCellClicked"
                 android:tag="11"
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/button_celeste_azul"
                 android:contentDescription="Cell 6"
                 android:onClick="onCellClicked"
                 android:tag="12"
@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/button_celeste_azul"
                 android:contentDescription="Cell 7"
                 android:onClick="onCellClicked"
                 android:tag="20"
@@ -109,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/button_celeste_azul"
                 android:contentDescription="Cell 8"
                 android:onClick="onCellClicked"
                 android:tag="21"
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@drawable/button_celeste_azul"
                 android:contentDescription="Cell 9"
                 android:onClick="onCellClicked"
                 android:tag="22"
@@ -128,4 +128,30 @@
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="143dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="44dp"
+        android:background="@color/Marron"
+        android:onClick="resetGame"
+        android:text="@string/reset"
+        android:textColor="#FFCDD2"
+        app:layout_constraintTop_toBottomOf="@+id/gameLinea"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="230dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/title_game"
+        app:layout_constraintBottom_toTopOf="@+id/gameLinea"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="222dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

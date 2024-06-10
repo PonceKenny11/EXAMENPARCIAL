@@ -37,20 +37,7 @@ public class RegistroLogin extends AppCompatActivity {
             return insets;
         });
 
-        campoValidations = new Validaciones(RegistroLogin.this);
-        ptxt_names = findViewById(R.id.txtNameComplete);
-        ptxt_password = findViewById(R.id.txtNewPass);
-        ptxt_email = findViewById(R.id.txtNewEmail);
-        ptxt_phone= findViewById(R.id.txtNumber);
-        ptxt_date = findViewById(R.id.txtDateNac);
-        radioGroup = findViewById(R.id.grupoSexo);
-        exitBoton = findViewById(R.id.exitSubmit);
-        professionCombo = findViewById(R.id.Spinner_Combo);
-
-        rellenarCombo(professionCombo);
-        focusFields(ptxt_names);
-        focusFields(ptxt_password);
-        focusFields(ptxt_email);
+        initializeLogin();
 
         exitBoton.setOnClickListener(view -> {
             Intent instanciarSalida = new Intent(this, MainActivity.class);
@@ -60,6 +47,8 @@ public class RegistroLogin extends AppCompatActivity {
 
 
     }
+
+
 
     public void ChekInSubmit(View view){
         boolean isValid = campoValidations.validateFields(
@@ -82,6 +71,23 @@ public class RegistroLogin extends AppCompatActivity {
 
 
     //SOPORTE CODE
+
+    private void initializeLogin(){
+        campoValidations = new Validaciones(RegistroLogin.this);
+        ptxt_names = findViewById(R.id.txtNameComplete);
+        ptxt_password = findViewById(R.id.txtNewPass);
+        ptxt_email = findViewById(R.id.txtNewEmail);
+        ptxt_phone= findViewById(R.id.txtNumber);
+        ptxt_date = findViewById(R.id.txtDateNac);
+        radioGroup = findViewById(R.id.grupoSexo);
+        exitBoton = findViewById(R.id.exitSubmit);
+        professionCombo = findViewById(R.id.Spinner_Combo);
+
+        rellenarCombo(professionCombo);
+        focusFields(ptxt_names);
+        focusFields(ptxt_password);
+        focusFields(ptxt_email);
+    }
     private void registrarUsuario(String emailInput, String passwordInput) {
 
         String selectedProfessionText = professionCombo.getSelectedItem().toString();

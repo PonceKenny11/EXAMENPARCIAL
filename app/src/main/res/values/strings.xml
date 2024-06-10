@@ -11,6 +11,8 @@
     <string name="name_Phone">Ingresa N° celular</string>
     <string name="name_Date">Ingresa fecha de nacimiento</string>
     <string name="title_screen">REGISTRAR NUEVO USUARIO!</string>
+    <string name="title_game">JUEGO EN LINEA DE 3!</string>
+    <string name="reset">RESETEAR EL JUEGO</string>
     <string name="pregunta_login">¿Aún no te has registrado?</string>
     <string name="casillero">casillero</string>
     <string name="Sexo_M">Masculino</string>

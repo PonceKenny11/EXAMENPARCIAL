@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
     public void ingresandoLG(View view){
         if (validateLogin()){
             Toast.makeText(this, "BIENVENIDO! :D", Toast.LENGTH_SHORT).show();
+            Intent instanciar = new Intent(this, Game3Linea.class);
+            startActivity(instanciar);
+            finish();
         }
     }
 

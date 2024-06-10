@@ -15,9 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Game3Linea extends AppCompatActivity {
 
-    private char currentPlayer = 'X';
+    private char jugadorActual = 'X';
     private char[][] board = new char[3][3];
-    private boolean gameEnded = false;
+    private boolean gameFinal = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +44,12 @@ public class Game3Linea extends AppCompatActivity {
                 board[i][j] = ' ';
             }
         }
-        currentPlayer = 'X';
-        gameEnded = false;
+        jugadorActual = 'X';
+        gameFinal = false;
     }
 
     public void onCellClicked(View view) {
-        if (gameEnded) {
+        if (gameFinal) {
             Toast.makeText(this, "El juego ha terminado. Reinicia el juego.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -60,41 +60,41 @@ public class Game3Linea extends AppCompatActivity {
         int col = Character.getNumericValue(tag.charAt(1));
 
         if (board[row][col] == ' ') {
-            board[row][col] = currentPlayer;
-            button.setText(String.valueOf(currentPlayer));
+            board[row][col] = jugadorActual;
+            button.setText(String.valueOf(jugadorActual));
             if (checkWin()) {
-                Toast.makeText(this, "El jugador " + currentPlayer + " ha ganado!", Toast.LENGTH_SHORT).show();
-                gameEnded = true;
+                Toast.makeText(this, "El jugador " + jugadorActual + " ha ganado!", Toast.LENGTH_SHORT).show();
+                gameFinal = true;
             } else if (isBoardFull()) {
                 Toast.makeText(this, "El juego ha terminado en empate.", Toast.LENGTH_SHORT).show();
-                gameEnded = true;
+                gameFinal = true;
             } else {
-                currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+                jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
             }
         }
     }
 
-    private boolean checkWin() {
+    private boolean checkWin() {//ha ganado
         // Comprobar filas y columnas
         for (int i = 0; i < 3; i++) {
-            if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) {
+            if (board[i][0] == jugadorActual && board[i][1] == jugadorActual && board[i][2] == jugadorActual) {
                 return true;
             }
-            if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) {
+            if (board[0][i] == jugadorActual && board[1][i] == jugadorActual && board[2][i] == jugadorActual) {
                 return true;
             }
         }
         // Comprobar diagonales
-        if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) {
+        if (board[0][0] == jugadorActual && board[1][1] == jugadorActual && board[2][2] == jugadorActual) {
             return true;
         }
-        if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer) {
+        if (board[0][2] == jugadorActual && board[1][1] == jugadorActual && board[2][0] == jugadorActual) {
             return true;
         }
         return false;
     }
 
-    private boolean isBoardFull() {
+    private boolean isBoardFull() {//empate
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == ' ') {
