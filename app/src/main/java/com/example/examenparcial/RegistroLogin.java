@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -18,9 +20,11 @@ import androidx.core.view.WindowInsetsCompat;
 public class RegistroLogin extends AppCompatActivity {
 
 
-    private EditText plainText, password, email, phone, date;
+    private EditText ptxt_names, ptxt_password, ptxt_email, ptxt_phone, ptxt_date;
     private RadioGroup radioGroup;
     private Button exitBoton;
+
+    private Spinner professionCombo;
     private Validaciones campoValidations;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +38,19 @@ public class RegistroLogin extends AppCompatActivity {
         });
 
         campoValidations = new Validaciones(RegistroLogin.this);
-        plainText = findViewById(R.id.txtNameComplete);
-        password = findViewById(R.id.txtNewPass);
-        email = findViewById(R.id.txtNewEmail);
-        phone = findViewById(R.id.txtNumber);
-        date = findViewById(R.id.txtDateNac);
+        ptxt_names = findViewById(R.id.txtNameComplete);
+        ptxt_password = findViewById(R.id.txtNewPass);
+        ptxt_email = findViewById(R.id.txtNewEmail);
+        ptxt_phone= findViewById(R.id.txtNumber);
+        ptxt_date = findViewById(R.id.txtDateNac);
         radioGroup = findViewById(R.id.grupoSexo);
         exitBoton = findViewById(R.id.exitSubmit);
+        professionCombo = findViewById(R.id.Spinner_Combo);
+
+        rellenarCombo(professionCombo);
+        focusFields(ptxt_names);
+        focusFields(ptxt_password);
+        focusFields(ptxt_email);
 
         exitBoton.setOnClickListener(view -> {
             Intent instanciarSalida = new Intent(this, MainActivity.class);
@@ -53,56 +63,78 @@ public class RegistroLogin extends AppCompatActivity {
 
     public void ChekInSubmit(View view){
         boolean isValid = campoValidations.validateFields(
-                plainText.getText().toString(),
-                password.getText().toString(),
-                email.getText().toString(),
-                phone.getText().toString(),
-                date.getText().toString(),
+                ptxt_names.getText().toString(),
+                ptxt_password.getText().toString(),
+                ptxt_email.getText().toString(),
+                ptxt_phone.getText().toString(),
+                ptxt_date.getText().toString(),
                 radioGroup.getCheckedRadioButtonId()
         );
 
         if(isValid){
-            registerUser(password.getText().toString(),email.getText().toString());
-            Toast.makeText(this, "Validación exitosa", Toast.LENGTH_SHORT).show();
+            registrarUsuario(ptxt_email.getText().toString(), ptxt_password.getText().toString());
+            Toast.makeText(this, "Cuenta Registrada Exitosamente!", Toast.LENGTH_SHORT).show();
         }
 
         limparCampos();
     }
 
 
-    private void registerUser(String passwordInput, String emailInput) {
+
+    //SOPORTE CODE
+    private void registrarUsuario(String emailInput, String passwordInput) {
+
+        String selectedProfessionText = professionCombo.getSelectedItem().toString();
+
         // SharedPreferences ->  Es útil para guardar datos pequeños y simples, como configuraciones del usuario o estados de la aplicación.
         SharedPreferences sharedPreferences = getSharedPreferences("UsuarioRegistrado", MODE_PRIVATE);
-        /*"UserPrefs", es el nombre del archivo de preferencias.
-        * */
+        /*"UsuarioRegistrado", es el nombre del archivo de preferencias.*/
+
         // Crear un editor para hacer cambios en SharedPreferences
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences.Editor editarShared = sharedPreferences.edit();
 
         // Guardar los valores en SharedPreferences
-        editor.putBoolean("isRegistered", true);
+        editarShared.putBoolean("isRegistered", true);
 
-        editor.putString("password", passwordInput);
-        editor.putString("email", emailInput);
+        editarShared.putString("password", passwordInput);
+        editarShared.putString("email", emailInput);
         /*
-        editor.putBoolean("isRegistered", true);
         editor.putString("nombre", nombre);
         editor.putString("password", passwordInput);
         editor.putString("email", emailInput);
         editor.putString("phone", phoneInput);
         editor.putString("date", dateInput);
-        editor.putString("gender", gender);
         */
         // Aplicar los cambios
-        editor.apply();
+        editarShared.apply();
     }
 
+    private void rellenarCombo(Spinner professionCombo){
+        // Crea un ArrayAdapter usando el array de strings y un layout por defecto para el spinner
+        ArrayAdapter<CharSequence> listaProfesion = ArrayAdapter.createFromResource(this, R.array.combo_items,  android.R.layout.simple_spinner_item);
+
+        listaProfesion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // se muestren en la lista desplegable. android.R.layout.simple_spinner_dropdown_item es un layout simple proporcionado por Android que muestra el texto en una lista desplegable.
+
+        professionCombo.setAdapter(listaProfesion);
+    }
 
     private void limparCampos(){
-        plainText.setText("");
-        password.setText("");
-        phone.setText("");
-        email.setText("");
-        date.setText("");
+        EditText[] txt = {ptxt_password,ptxt_names,ptxt_phone,ptxt_date,ptxt_email};
+        campoValidations.limpiarCampos(txt);
         radioGroup.clearCheck();
+    }
+
+    private void focusFields(EditText txtField){
+            txtField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        txtField.setText("");
+                    }
+                }
+            }
+            );
+
     }
 }

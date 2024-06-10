@@ -21,6 +21,16 @@ public class Validaciones {
     }
 
 
+
+    // METODOS PUBLIC //
+
+    public void limpiarCampos(EditText[] arrTxT){
+        for (int i = 0; i < arrTxT.length; i++) {
+            arrTxT[i].setText("");
+        }
+    }
+
+
     public boolean validateFields(String plainText, String password, String email, String phone, String date, int radioButtonId) {
         if (plainText.trim().isEmpty()) {
             showToast("El campo Nombre es obligatorio");
@@ -31,7 +41,7 @@ public class Validaciones {
             showToast("El campo Contraseña es obligatorio");
             return false;
         } else if (password.length() < 9) {
-            showToast("La contraseña debe ser mayor que 9 caracteres");
+            showToast("La contraseña debe ser mayor a 9 caracteres");
             return false;
         }
 
@@ -68,6 +78,8 @@ public class Validaciones {
 
     }
 
+
+    /*METODOS PRIVATE*/
     private boolean isValidDate(String date) {
         SimpleDateFormat validarFecha = new SimpleDateFormat("dd/MM/yyyy");
         validarFecha.setLenient(false);

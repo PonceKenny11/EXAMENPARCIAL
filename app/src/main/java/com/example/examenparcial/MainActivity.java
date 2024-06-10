@@ -47,24 +47,28 @@ public class MainActivity extends AppCompatActivity {
 
 
     private boolean validateLogin() {
+        Validaciones campoValidators = new Validaciones(MainActivity.this);
         SharedPreferences sharedPreferences = getSharedPreferences("UsuarioRegistrado", MODE_PRIVATE);
         boolean isRegistered = sharedPreferences.getBoolean("isRegistered", true);
 
         String emailInput = correo.getText().toString().trim();
         String passwordInput = contrasenia.getText().toString().trim();
+        EditText[] txt = {correo, contrasenia};
 
         if (isRegistered) {
-            String registeredEmail = sharedPreferences.getString("email", "");
-            String registeredPassword = sharedPreferences.getString("password", "");
+            String correoShared = sharedPreferences.getString("email", "");
+            String contraseniaShare = sharedPreferences.getString("password", "");
 
-            if (emailInput.equals(registeredEmail) && passwordInput.equals(registeredPassword)) {
-                return true;  // Login successful
+            if (emailInput.equals(correoShared) && passwordInput.equals(contraseniaShare)) {
+                return true;  // Iniciar Sesion Exitoso!!
             } else {
                 Toast.makeText(this, "Correo electrónico o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                campoValidators.limpiarCampos(txt);
                 return false;
             }
         } else {
             Toast.makeText(this, "Usuario no registrado", Toast.LENGTH_SHORT).show();
+            campoValidators.limpiarCampos(txt);
             return false;
         }
     }

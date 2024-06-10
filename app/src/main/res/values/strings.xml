@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">EXAMENPARCIAL</string>
-    <string name="app_correo">EMAIL@</string>
+    <string name="app_correo">Email@...</string>
     <string name="app_contrasena">Password...</string>
     <string name="app_ingresar">Sign In</string>
     <string name="app_salir">Exit</string>
     <string name="app_registrar">Check In</string>
     <string name="app_aceptar">Register</string>
-    <string name="name_Complet">Escribe tu nombre completo</string>
-    <string name="name_Pass">Escribe tu nueva contraseña</string>
-    <string name="name_Phone">Ingrese tu n° celular</string>
-    <string name="name_Date">Ingresa tu fecha de nacimiento</string>
+    <string name="name_Complet">Ingresa nombre completo</string>
+    <string name="name_Pass">Ingresa nueva contraseña</string>
+    <string name="name_Phone">Ingresa N° celular</string>
+    <string name="name_Date">Ingresa fecha de nacimiento</string>
     <string name="title_screen">REGISTRAR NUEVO USUARIO!</string>
     <string name="pregunta_login">¿Aún no te has registrado?</string>
     <string name="casillero">casillero</string>
