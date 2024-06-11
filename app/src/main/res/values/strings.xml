@@ -4,7 +4,7 @@
     <string name="app_contrasena">Contraseña</string>
     <string name="app_ingresar">Sign In</string>
     <string name="app_salir">Volver</string>
-    <string name="app_registrar">Registrarse</string>
+    <string name="app_registrar"><u>Registrarse</u></string>
     <string name="app_aceptar">Register</string>
     <string name="name_Complet">Ingresa nombre completo</string>
     <string name="name_Pass">Ingresa nueva contraseña</string>

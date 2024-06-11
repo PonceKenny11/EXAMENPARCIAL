@@ -63,6 +63,7 @@ public class RegistroLogin extends AppCompatActivity {
         if(isValid){
             registrarUsuario(ptxt_email.getText().toString(), ptxt_password.getText().toString());
             Toast.makeText(this, "Cuenta Registrada Exitosamente!", Toast.LENGTH_SHORT).show();
+            instanciarActividad();
         }
 
         limparCampos();
@@ -125,10 +126,13 @@ public class RegistroLogin extends AppCompatActivity {
         radioGroup.clearCheck();
     }
 
-    public void ExitApp(View view){
+    private void instanciarActividad(){
         Intent instanciarSalida = new Intent(this, MainActivity.class);
         startActivity(instanciarSalida);
         finish();
+    }
+    public void ExitApp(View view){
+        instanciarActividad();
     }
 
 

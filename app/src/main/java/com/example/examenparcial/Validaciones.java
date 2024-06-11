@@ -1,6 +1,7 @@
 package com.example.examenparcial;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -83,16 +84,17 @@ public class Validaciones {
 
     public void focusFields(EditText txtField){
         txtField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                                              @Override
-                                              public void onFocusChange(View v, boolean hasFocus) {
-                                                  if (hasFocus) {
-                                                      txtField.setText("");
-                                                  }
-                                              }
-                                          }
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    txtField.setText("");
+                }
+            }
+        }
         );
 
     }
+
 
     /*METODOS PRIVATE*/
     private boolean isValidDate(String date) {

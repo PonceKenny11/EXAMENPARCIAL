@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText correo, contrasenia, myLink;
+    private EditText correo, contrasenia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         correo = findViewById(R.id.txtEmail);
         contrasenia = findViewById(R.id.txtPassword);
-        myLink = findViewById(R.id.linkRegistrarse);
+
     }
 
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean validateLogin() {
         Validaciones campoValidators = new Validaciones(MainActivity.this);
         SharedPreferences sharedPreferences = getSharedPreferences("UsuarioRegistrado", MODE_PRIVATE);
-        boolean isRegistered = sharedPreferences.getBoolean("isRegistered", true);
+        boolean isRegistered = sharedPreferences.getBoolean("isRegistered", false);
 
         String emailInput = correo.getText().toString().trim();
         String passwordInput = contrasenia.getText().toString().trim();
@@ -77,4 +77,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void ExitApp(View view){
+        finishAffinity();//se asegura que se cierren todas la actividades
+    }
 }

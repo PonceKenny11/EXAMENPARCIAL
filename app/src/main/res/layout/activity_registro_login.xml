@@ -157,6 +157,7 @@
         android:ems="10"
         android:hint="@string/app_correo"
         android:inputType="textEmailAddress"
+        android:maxLength="9"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
