@@ -110,7 +110,7 @@ public class Game3Linea extends AppCompatActivity {
         initializeBoard();
     }
 
-    public void ExitApp(){
+    public void ExitApp(View view){
         Intent instanciarSalida = new Intent(this, MainActivity.class);
         startActivity(instanciarSalida);
         finish();

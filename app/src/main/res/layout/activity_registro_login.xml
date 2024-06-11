@@ -141,6 +141,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/button_redondeo"
+        android:onClick="ExitApp"
         android:text="@string/app_salir"
         android:textSize="17dp"
         app:layout_constraintStart_toEndOf="@+id/button3"

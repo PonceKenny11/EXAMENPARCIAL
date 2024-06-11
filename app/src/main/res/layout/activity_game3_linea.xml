@@ -161,9 +161,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:background="@drawable/button_redondeo"
+        android:onClick="ExitApp"
         android:text="@string/app_salir"
         app:layout_constraintTop_toBottomOf="@+id/gameLinea"
-        tools:layout_editor_absoluteX="248dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="248dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

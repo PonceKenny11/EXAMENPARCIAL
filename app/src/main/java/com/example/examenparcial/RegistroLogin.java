@@ -125,7 +125,7 @@ public class RegistroLogin extends AppCompatActivity {
         radioGroup.clearCheck();
     }
 
-    public void ExitApp(){
+    public void ExitApp(View view){
         Intent instanciarSalida = new Intent(this, MainActivity.class);
         startActivity(instanciarSalida);
         finish();

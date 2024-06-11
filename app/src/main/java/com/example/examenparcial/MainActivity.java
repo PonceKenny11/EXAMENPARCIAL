@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText correo, contrasenia;
+    private EditText correo, contrasenia, myLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         correo = findViewById(R.id.txtEmail);
         contrasenia = findViewById(R.id.txtPassword);
+        myLink = findViewById(R.id.linkRegistrarse);
     }
 
 
