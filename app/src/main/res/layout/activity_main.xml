@@ -61,7 +61,7 @@
         android:ems="10"
         android:hint="@string/app_correo"
         android:inputType="textEmailAddress"
-        android:maxLength="10"
+        android:maxLength="9"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
