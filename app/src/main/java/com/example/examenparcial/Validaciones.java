@@ -50,12 +50,12 @@ public class Validaciones {
         }
 
         if (email.trim().isEmpty()) {
-            showToast("El campo Correo electrónico es obligatorio");
+            showToast("El campo Usuario es obligatorio");
             return false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        } /*else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             showToast("Correo electrónico no válido");
             return false;
-        }
+        }*/
 
         if (phone.trim().isEmpty()) {
             showToast("El campo Teléfono es obligatorio");

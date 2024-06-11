@@ -96,16 +96,40 @@ public class Game3Linea extends AppCompatActivity {
     }
 
     private boolean isBoardFull() {//empate
+        int cont_X = 0;
+        int con_O = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (board[i][j] == ' ') {
-                    return false;
+                if (board[i][j] == 'X') {
+                    cont_X++;
+                } else if (board[i][j] == 'O') {
+                    con_O++;
                 }
             }
         }
-        return true;
+
+        if(cont_X > 3){
+            eliminarCeldaAntigua('X');
+        }
+
+        if(con_O > 3){
+            eliminarCeldaAntigua('O');
+        }
+
+        return (cont_X + con_O) == 9;//exoste empate
     }
 
+
+    private void eliminarCeldaAntigua(char jugador){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if(board[i][j] == jugador){
+                    board[i][j] = ' ';
+                    return;
+                }
+            }
+        }
+    }
     public void resetGame(View view) {
         initializeBoard();
     }
