@@ -1,5 +1,6 @@
 package com.example.examenparcial;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -109,7 +110,11 @@ public class Game3Linea extends AppCompatActivity {
         initializeBoard();
     }
 
-
+    public void ExitApp(){
+        Intent instanciarSalida = new Intent(this, MainActivity.class);
+        startActivity(instanciarSalida);
+        finish();
+    }
 
 
 

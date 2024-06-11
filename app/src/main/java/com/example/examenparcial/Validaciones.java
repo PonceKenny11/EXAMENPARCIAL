@@ -2,6 +2,7 @@ package com.example.examenparcial;
 
 import android.content.Context;
 import android.util.Patterns;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -30,7 +31,9 @@ public class Validaciones {
         }
     }
 
+    public void exitApp(){
 
+    }
     public boolean validateFields(String plainText, String password, String email, String phone, String date, int radioButtonId) {
         if (plainText.trim().isEmpty()) {
             showToast("El campo Nombre es obligatorio");
@@ -78,11 +81,23 @@ public class Validaciones {
 
     }
 
+    public void focusFields(EditText txtField){
+        txtField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                                              @Override
+                                              public void onFocusChange(View v, boolean hasFocus) {
+                                                  if (hasFocus) {
+                                                      txtField.setText("");
+                                                  }
+                                              }
+                                          }
+        );
+
+    }
 
     /*METODOS PRIVATE*/
     private boolean isValidDate(String date) {
         SimpleDateFormat validarFecha = new SimpleDateFormat("dd/MM/yyyy");
-        validarFecha.setLenient(false);
+        validarFecha.setLenient(false); /*asegura que el análisis de fechas sea estricto*/
         try {
             validarFecha.parse(date);
             return true;
@@ -91,22 +106,7 @@ public class Validaciones {
         }
     }
 
-    private boolean isValidDateCumple(String date) {
-        SimpleDateFormat dateCumple = new SimpleDateFormat("dd/MM/yyyy"); /*SimpleDateFormat se usa para formatear y analizar fechas.*/
-        dateCumple.setLenient(false); /*asegura que el análisis de fechas sea estricto*/
-        try {
 
-            Date birthDate = dateCumple.parse(date);//Intenta convertir la cadena date en un objeto Date.
-            // Obtenemos la fecha actual
-            Calendar ahora = Calendar.getInstance();
-            // Restamos 15 años a la fecha actual
-            ahora.add(Calendar.YEAR, -15);
-            // Verificamos si la fecha de nacimiento no es posterior a la fecha actual menos 15 años
-            return !birthDate.after(ahora.getTime());
-        } catch (ParseException e) {
-            return false;
-        }
-    }
     private void showToast(String message) {
         Toast.makeText(this.contexto, message, Toast.LENGTH_SHORT).show();
     }

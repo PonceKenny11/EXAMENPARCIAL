@@ -39,11 +39,11 @@ public class RegistroLogin extends AppCompatActivity {
 
         initializeLogin();
 
-        exitBoton.setOnClickListener(view -> {
+        /*exitBoton.setOnClickListener(view -> {
             Intent instanciarSalida = new Intent(this, MainActivity.class);
             startActivity(instanciarSalida);
             finish();
-        });
+        });*/
 
 
     }
@@ -84,9 +84,9 @@ public class RegistroLogin extends AppCompatActivity {
         professionCombo = findViewById(R.id.Spinner_Combo);
 
         rellenarCombo(professionCombo);
-        focusFields(ptxt_names);
-        focusFields(ptxt_password);
-        focusFields(ptxt_email);
+        campoValidations.focusFields(ptxt_names);
+        campoValidations.focusFields(ptxt_password);
+        campoValidations.focusFields(ptxt_email);
     }
     private void registrarUsuario(String emailInput, String passwordInput) {
 
@@ -104,13 +104,7 @@ public class RegistroLogin extends AppCompatActivity {
 
         editarShared.putString("password", passwordInput);
         editarShared.putString("email", emailInput);
-        /*
-        editor.putString("nombre", nombre);
-        editor.putString("password", passwordInput);
-        editor.putString("email", emailInput);
-        editor.putString("phone", phoneInput);
-        editor.putString("date", dateInput);
-        */
+
         // Aplicar los cambios
         editarShared.apply();
     }
@@ -131,16 +125,11 @@ public class RegistroLogin extends AppCompatActivity {
         radioGroup.clearCheck();
     }
 
-    private void focusFields(EditText txtField){
-            txtField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (hasFocus) {
-                        txtField.setText("");
-                    }
-                }
-            }
-            );
-
+    public void ExitApp(){
+        Intent instanciarSalida = new Intent(this, MainActivity.class);
+        startActivity(instanciarSalida);
+        finish();
     }
+
+
 }

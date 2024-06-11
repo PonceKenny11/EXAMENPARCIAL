@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">EXAMENPARCIAL</string>
-    <string name="app_correo">Email@...</string>
-    <string name="app_contrasena">Password...</string>
+    <string name="app_correo">Usuario</string>
+    <string name="app_contrasena">Contraseña</string>
     <string name="app_ingresar">Sign In</string>
-    <string name="app_salir">Exit</string>
-    <string name="app_registrar">Check In</string>
+    <string name="app_salir">Volver</string>
+    <string name="app_registrar">Registrarse</string>
     <string name="app_aceptar">Register</string>
     <string name="name_Complet">Ingresa nombre completo</string>
     <string name="name_Pass">Ingresa nueva contraseña</string>
